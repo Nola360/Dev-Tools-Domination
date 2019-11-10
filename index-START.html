@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const producer = [{
+      name: 'Director',
+      years: 26
+    }, {
+      name: 'Artist',
+      years: 30
+    }, {
+      name: "producers",
+      years: 7
+
+    }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+
+    console.log('hello');
+
+    // Interpolated
+
+    console.log('hello, I am a %s javascript developer', '👨🏿‍💻');
+    // console.log(`Hello I am a ${var}`);
+
+    // Styled
+    console.log('%c I am some great text', 'font-size: 20px; background: green; color: white;');
+
+    // warning!
+
+    console.warn('Warning!');
+    // Error :|
+
+    console.error('An error has occurred!')
+    // Info
+
+    console.info('Racism is a thing of the past - good riddings!');
+
+    // Testing
+
+
+    const p = document.querySelector("p");
+    console.assert(p.classList.contains('Hi'), "this is incorrect!");
+
+    // clearing
+    // console.clear();
+
+    // Viewing DOM Elements
+
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+
+    producer.forEach(artist => {
+      console.group(`${artist.name}`);
+      console.groupCollapsed(`${artist.name}`);
+      console.log(`This is ${artist.name}`);
+      console.log(`${artist.name} is ${artist.years} years old`);
+      console.log(`${artist.name} is ${artist.years} years old`);
+      // console.log(`${artist.name} is ${artist.years * 7} years old`);
+      console.groupEnd(`${artist.name}`);
+    })
+
+    // counting
+
+    console.count('Kanye Westley');
+    console.count('Jay-Z');
+    console.count('Kanye West');
+    console.count('LeBron James Baldwin');
+    console.count('Drake');
+    console.count('9th Wonder');
+    console.count('Cardi B');
+    console.count('K DOT');
+    console.count('Lauryn Hill');
+    console.count('Nipsey Hussle');
+    console.count('Steph Curry');
+    console.count('Akinola');
+    console.count('Ebony');
+    console.count('Black Thought');
+    console.count('J Cole');
+    console.count('Rapsody');
+
+    // timing (see how long something takes)
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/webos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+
+      });
+
+    //Table
+
+    console.table(producer);
+  </script>
+</body>
+
+</html>
